@@ -7,7 +7,7 @@
 1. Install `VS Code` and `Python`.
 2. Create [Adzuna API account](https://developer.adzuna.com/).
 3. Write down your `app_id` and `app_key` (you can find it after registration in **Dashboard** panel **API Access details**).
-*Example* - Application ID 80393870; Application Keys 875441c752735976f76161157548e0f0.
+*Example* - Application ID 00093870; Application Keys 005441c752735976f76161157548e0f0.
 4. Create [AWS Account](https://aws.amazon.com/account/).
 5. You need a Google Account to access [Looker Studio](https://lookerstudio.google.com/u/0/navigation/reporting).
 6. Its good to have Jupiter Notebook. To run it type `jupyter notebook` in your terminal 
@@ -23,11 +23,11 @@ Original strings:
     ADZUNA_APP_ID = os.getenv('ADZUNA_APP_ID')
     ADZUNA_APP_KEY = os.getenv('ADZUNA_APP_KEY')
 I put content in a wrong way:
-    ADZUNA_APP_ID = os.getenv('80393870')
-    ADZUNA_APP_KEY = os.getenv('875441c752735976f76161157548e0f0')
+    ADZUNA_APP_ID = os.getenv('00093870')
+    ADZUNA_APP_KEY = os.getenv('005441c752735976f76161157548e0f0')
 But supposed to do this:
-    ADZUNA_APP_ID = '80393870'
-    ADZUNA_APP_KEY = '875441c752735976f76161157548e0f0'
+    ADZUNA_APP_ID = '00093870'
+    ADZUNA_APP_KEY = '005441c752735976f76161157548e0f0'
 ```
 4. After that I was able to run my ipynb and used `jobs_df.head()` to check I have the data I need.
 
@@ -47,19 +47,19 @@ vlad-adzuna-etl-project:
 ```
 4. It's a nice thing to add **S3**, **IAM**, and **Lambda** to favorites since we will work with them closely. To do this search in your AWS account and click on a star near the service.
 
-![favorites](pictures\awsservices.png)
+![favorites](pictures/awsservices.png)
 
 ### Step 3. Developing Lambda function to extract data
 
 1. When you're creating policy (**step 3.1 / 11**) on this step don't forget to edit the "Resource" field in a JSON file you put into.
 
-![Policy](pictures\prpolicy.png)
+![Policy](pictures/prpolicy.png)
 
 2. Don't forget to change lines 15-17 (**Step 3.3 / 1**) using your ID, key and bucket name.
 
 3. For future needs you need to edit lines below. You can find AWS account ID under "My security credentials" (click your username on the top right corner and choose Security credentials).
 
-![Policy2](pictures\policy.png)
+![Policy2](pictures/policy.png)
 
 ### Step 4. Developing Lambda function to transform data
 
@@ -71,7 +71,7 @@ vlad-adzuna-etl-project:
 1. Don't forget to write down the info (**Step 5.12**) like this:
 ```
 IAM roles
-arn:aws:iam::820242936798:role/service-role/AmazonRedshift-CommandsAccessRole-20241006T132615
+arn:aws:iam::000242936798:role/service-role/AmazonRedshift-CommandsAccessRole-20241006T132615
 ```
 2. Set a minimal Base capacity (**Step 5.4**) it's enough for our project.
 
